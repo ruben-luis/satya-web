@@ -422,7 +422,7 @@
 
     /* ── BENTO GRID SERVICES ── */
     /* ── SERVICIOS CARRUSEL ── */
-    .svc-carousel-wrap { position: relative; }
+    .svc-carousel-wrap { position: relative; overflow: hidden; max-width: 100%; }
     .svc-carousel {
       display: flex;
       overflow-x: auto;
@@ -860,10 +860,10 @@
       .hero-body { font-size: .9rem; }
       .btn { padding: .65rem 1.3rem; font-size: .84rem; }
       /* Hero: logo detrás del texto en móvil */
-      .hero { position: relative; grid-template-columns: 1fr; min-height: 100svh; }
+      .hero { position: relative; grid-template-columns: 1fr; min-height: 100svh; overflow: hidden; }
       .hero-left { position: relative; z-index: 2; min-height: 100svh; padding-bottom: 3rem; }
       .hero-right {
-        position: absolute; top: 0; right: -5%; bottom: 0;
+        position: absolute; top: 0; right: 0; bottom: 0;
         width: 75%; min-height: unset;
         opacity: 0.13;
         z-index: 1; pointer-events: none;
@@ -885,6 +885,12 @@
       .footer-links { justify-content: center; }
       /* NAV oculto en móvil */
       nav { display: none; }
+      /* Evitar overflow horizontal global */
+      #servicios { overflow: hidden; }
+      /* Anillos filosofía reducidos a móvil */
+      .filo-ring-inner { width: 260px; height: 260px; }
+      .filo-ring-outer { width: 340px; height: 340px; }
+      #enfoque { overflow: hidden; }
       /* FAB — bajar a esquina inferior derecha para no tapar contenido */
       .fab-stack { bottom: 1.4rem; right: .8rem; gap: .45rem; }
       .fab { width: 44px; height: 44px; }
