@@ -894,12 +894,12 @@
       .footer-links { justify-content: center; }
       /* NAV oculto en móvil */
       nav { display: none; }
-      /* Evitar overflow horizontal global */
-      #servicios { overflow: hidden; }
+      /* Evitar overflow horizontal — solo en el wrap del carousel, no en la sección completa */
+      .svc-carousel-wrap { overflow: hidden; }
       /* Anillos filosofía reducidos a móvil */
       .filo-ring-inner { width: 260px; height: 260px; }
       .filo-ring-outer { width: 340px; height: 340px; }
-      #enfoque { overflow: hidden; }
+      #enfoque { overflow-x: hidden; }
       /* FAB — bajar a esquina inferior derecha para no tapar contenido */
       .fab-stack { bottom: 1.4rem; right: .8rem; gap: .45rem; }
       .fab { width: 44px; height: 44px; }
