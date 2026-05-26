@@ -704,11 +704,15 @@
     .footer-brand-top {
       display: flex; align-items: center; gap: .85rem; margin-bottom: 1.2rem;
     }
+    .footer-logo-wrap {
+      width: 56px; height: 56px; flex-shrink: 0;
+      background: #4F8FA8;
+      display: flex; align-items: center; justify-content: center;
+    }
     .footer-logo {
-      height: 52px; width: 52px; object-fit: contain;
-      filter: grayscale(1) contrast(100) invert(1);
+      height: 56px; width: 56px; object-fit: contain;
+      filter: grayscale(1) contrast(50) invert(1);
       mix-blend-mode: screen;
-      opacity: .9;
     }
     .footer-brand-name {
       font-family: 'Alegreya', serif; font-size: 1.4rem;
@@ -890,8 +894,8 @@
       .fab::before, .fab::after { display: none; }
       /* Footer bottom apilado y centrado */
       .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: .4rem; }
-      /* FABs ocultos en móvil — footer ya tiene los mismos links */
-      .fab-stack { display: none; }
+      /* FABs en móvil — esquina inferior derecha */
+      .fab-stack { display: flex; bottom: 1.4rem; right: .8rem; gap: .45rem; }
     }
   </style>
 </head>
@@ -1187,7 +1191,9 @@
       <!-- Columna 1: Marca -->
       <div class="footer-brand">
         <div class="footer-brand-top">
-          <img src="logo_satya.jpg" alt="SATYA" class="footer-logo">
+          <div class="footer-logo-wrap">
+            <img src="logo_satya.jpg" alt="SATYA" class="footer-logo">
+          </div>
           <div>
             <span class="footer-brand-name">Satya</span>
             <span class="footer-brand-sub">Espacio Terapéutico</span>
