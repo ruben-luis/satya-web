@@ -1,0 +1,8 @@
+node_modules/
+*.mjs
+*.js
+package.json
+package-lock.json
+*.png
+satya_landing.html
+satya_v2.html
