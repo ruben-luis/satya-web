@@ -844,15 +844,22 @@
       .hero-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
       .hero-body { font-size: .9rem; }
       .btn { padding: .65rem 1.3rem; font-size: .84rem; }
-      .hero-right { min-height: 62svh; }
-      .hero-photo-scene { width: min(210px, 50%); }
+      /* Hero: logo detrás del texto en móvil */
+      .hero { position: relative; grid-template-columns: 1fr; min-height: 100svh; }
+      .hero-left { position: relative; z-index: 2; min-height: 100svh; padding-bottom: 3rem; }
+      .hero-right {
+        position: absolute; top: 0; right: -5%; bottom: 0;
+        width: 75%; min-height: unset;
+        opacity: 0.13;
+        z-index: 1; pointer-events: none;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .hero-photo-scene { width: min(280px, 85%); }
       .hero-float-1 { width: 70px; height: 70px; }
       .hero-float-2 { width: 100px; height: 100px; }
       .hero-float-3 { display: none; }
-      .hcard-avail { top: 6%; left: 2%; min-width: 160px; padding: .6rem .85rem; }
-      .avail-title { font-size: .75rem; }
-      .hcard-tags  { bottom: 18%; left: 2%; padding: .55rem .85rem; }
-      .hcard-tags span { font-size: .72rem; }
+      .hcard-avail { display: none; }
+      .hcard-tags  { display: none; }
       .hcard-quote { display: none; }
       /* bento */
       .svc-grid { grid-template-columns: 1fr; gap: 2.5rem 0; }
@@ -868,8 +875,6 @@
       .fab { width: 44px; height: 44px; }
       .fab svg { width: 22px; height: 22px; }
       .fab::before, .fab::after { display: none; }
-      /* Hero derecho más compacto en móvil */
-      .hero-right { min-height: 46svh; }
       /* Footer bottom apilado y centrado */
       .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: .4rem; }
       /* FABs ocultos en móvil — footer ya tiene los mismos links */
