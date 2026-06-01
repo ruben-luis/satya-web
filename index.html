@@ -272,7 +272,7 @@
     /* photo scene */
     .hero-photo-scene {
       position: relative; z-index: 2;
-      width: min(420px, 72%);
+      width: min(340px, 58%);
       background: transparent;
     }
     .hero-img-wrap {
@@ -336,15 +336,19 @@
       padding: .85rem 1.1rem;
       animation: cardFloat 7s ease-in-out infinite .7s;
       max-width: 195px;
+      display: flex;
+      align-items: flex-start;
+      gap: .15rem;
     }
     .hcard-quote-mark {
-      font-family: 'Alegreya', serif; font-size: 2rem;
-      color: var(--text-main); line-height: .7;
-      display: block; margin-bottom: .35rem;
+      font-family: 'Alegreya', serif; font-size: 1.1rem;
+      color: var(--text-main); line-height: 1.5;
+      flex-shrink: 0;
     }
     .hcard-quote p {
       font-family: 'Alegreya', serif; font-size: .82rem;
       font-style: italic; color: var(--mid); line-height: 1.5;
+      margin: 0;
     }
     @keyframes cardFloat {
       0%,100% { transform: translateY(0); }
