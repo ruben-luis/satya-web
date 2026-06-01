@@ -963,7 +963,7 @@
     <div class="hero-left">
       <div class="hero-eyebrow reveal reveal-sky">
         <span class="hero-eyebrow-line"></span>
-        <span class="hero-eyebrow-label" id="eyebrowType" data-text="Psicología · Bienestar · Transformación"></span>
+        <span class="hero-eyebrow-label" id="eyebrowType" data-text="Psicología · Bienestar · Transformación" data-text-mobile="Terapia · Bienestar · Transformación"></span>
       </div>
       <h1 class="t-display hero-title reveal reveal-sky reveal-d1">
         <span class="t-name">Satya.</span>
@@ -1291,7 +1291,7 @@
     /* ── Typewriter eyebrow ── */
     (function() {
       const el   = document.getElementById('eyebrowType');
-      const text = el.dataset.text;
+      const text = (window.innerWidth <= 960 && el.dataset.textMobile) ? el.dataset.textMobile : el.dataset.text;
       let i = 0;
       function type() {
         if (i <= text.length) {
