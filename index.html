@@ -466,12 +466,11 @@
       scroll-snap-align: start;
       background: var(--surface);
       border-radius: 20px;
-      padding: 2.4rem 2rem 2rem;
+      padding: 1.8rem 2rem 2rem;
       display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0;
       box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
       transition: background .45s var(--ease-expo), box-shadow .45s var(--ease-expo), transform .45s var(--ease-spring);
       cursor: pointer;
-      min-height: 360px;
     }
     .svc-blob:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.1); }
 
@@ -485,7 +484,7 @@
       width: 62px; height: 62px; border-radius: 50%;
       background: rgba(0,0,0,.07);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem; margin-bottom: 1.6rem;
+      font-size: 1.7rem; margin-bottom: 1.1rem;
       transition: background .45s var(--ease-expo), transform .4s var(--ease-spring);
     }
     .blob-green:hover .svc-icon { background: #4E7A38; }
@@ -501,7 +500,8 @@
     }
 
     /* descripción */
-    .svc-blob .t-body { font-size: .92rem; line-height: 1.7; color: var(--mid); flex: 1; }
+    .svc-blob .t-body { font-size: 1rem; line-height: 1.7; color: var(--mid); flex: 1; }
+    .svc-subtitle { font-size: .78em; font-weight: 400; color: var(--text-main); font-style: italic; display: block; }
     .svc-blob:hover .t-body { color: rgba(30,45,53,.75); }
 
     /* link explorar */
@@ -1037,69 +1037,36 @@
   <section id="servicios">
     <div class="section">
       <div class="section-header">
-        <span class="t-label reveal reveal-sky">Lo que ofrecemos</span>
         <h2 class="t-section reveal reveal-sky reveal-d1">
-          <mark class="hl-dark">Servicios</mark> <em style="font-style:italic;color:var(--text-main)">pensados</em><br><mark class="hl-dark">para ti</mark>
+          <mark class="hl-dark">Servicios</mark> <em style="font-style:italic;color:var(--text-main)">pensados</em> <mark class="hl-dark">para ti:</mark>
         </h2>
       </div>
 
       <div class="svc-carousel-wrap">
         <div class="svc-carousel" id="svcCarousel">
 
-          <div class="svc-blob blob-teal">
+            <div class="svc-blob blob-teal">
             <div class="svc-icon">🌿</div>
-            <h3 class="t-card-title">Terapia individual</h3>
-            <p class="t-body">Un proceso personalizado para explorar emociones, pensamientos y patrones. Claridad y herramientas que te acompañan de por vida.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
+            <h3 class="t-card-title">Terapia Individual<em class="svc-subtitle">Enfoque Humanista Gestalt</em></h3>
+            <p class="t-body">Espacio de acompañamiento donde explorarás emociones, pensamientos y experiencias en un ambiente de confianza y aceptación. Desarrollamos tu autoconciencia y recursos personales para afrontar ansiedad, duelos, estrés, crisis de autoestima y momentos de cambio, promoviendo una relación más auténtica contigo mismo y con los demás.</p>
           </div>
 
           <div class="svc-blob blob-green">
             <div class="svc-icon">🔄</div>
-            <h3 class="t-card-title">Consejería en adicciones</h3>
-            <p class="t-body">Acompañamiento especializado para reconocer y superar conductas adictivas desde la raíz, sin juicio.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
+            <h3 class="t-card-title">Consejería en Adicciones y Codependencia</h3>
+            <p class="t-body">Acompañamiento especializado para quienes enfrentan conductas adictivas o dinámicas de codependencia, y para sus familiares. En un espacio libre de juicios, trabajamos el reconocimiento de patrones de dependencia y construimos estrategias sostenibles de cambio para recuperar el equilibrio y fortalecer la autonomía.</p>
           </div>
 
           <div class="svc-blob blob-beige">
             <div class="svc-icon">🤝</div>
-            <h3 class="t-card-title">Acompañamiento en codependencia</h3>
-            <p class="t-body">Aprende a construir relaciones sanas y a recuperar tu autonomía emocional con herramientas concretas.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
-          </div>
-
-          <div class="svc-blob blob-teal">
-            <div class="svc-icon">✨</div>
-            <h3 class="t-card-title">Desarrollo personal y bienestar emocional</h3>
-            <p class="t-body">Trabaja en autoconocimiento y bienestar integral. No necesitas estar en crisis para crecer.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
-          </div>
-
-          <div class="svc-blob blob-green">
-            <div class="svc-icon">👨‍👩‍👧</div>
-            <h3 class="t-card-title">Orientación familiar</h3>
-            <p class="t-body">Apoyo a familias para mejorar comunicación, vínculos y el bienestar de todos sus integrantes.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
-          </div>
-
-          <div class="svc-blob blob-beige">
-            <div class="svc-icon">💛</div>
-            <h3 class="t-card-title">Fortalecimiento emocional y autoestima</h3>
-            <p class="t-body">Reconstruye la confianza en ti mismo/a y desarrolla una relación más compasiva contigo.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
-          </div>
-
-          <div class="svc-blob blob-teal">
-            <div class="svc-icon">👂</div>
-            <h3 class="t-card-title">Espacios de escucha terapéutica</h3>
-            <p class="t-body">Un lugar seguro para hablar, ser escuchado/a y empezar a procesar lo que cargas, a tu ritmo.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
+            <h3 class="t-card-title">Terapia Familiar y de Pareja<em class="svc-subtitle">Enfoque Humanista</em></h3>
+            <p class="t-body">Espacio seguro para explorar las dinámicas de pareja o familia y construir nuevas formas de encuentro. Favorecemos el diálogo y la empatía para abordar conflictos, comunicación, crisis, separación y desafíos en la convivencia, incluyendo situaciones relacionadas con adicciones en el sistema familiar.</p>
           </div>
 
           <div class="svc-blob blob-green">
             <div class="svc-icon">🌱</div>
-            <h3 class="t-card-title">Talleres de crecimiento personal</h3>
-            <p class="t-body">Experiencias grupales para aprender, conectar y crecer junto a otras personas en el camino.</p>
-            <a href="#contacto" class="svc-link">Explorar →</a>
+            <h3 class="t-card-title">Talleres y Pláticas Grupales</h3>
+            <p class="t-body">Talleres y espacios de reflexión para instituciones educativas, empresas y comunidades. Los contenidos se adaptan a cada grupo e incluyen prevención de adicciones, habilidades para la vida, manejo emocional, autoestima, comunicación efectiva y fortalecimiento de factores protectores.</p>
           </div>
 
         </div>
@@ -1109,10 +1076,6 @@
           <button class="svc-nav-btn" id="svcPrev" aria-label="Anterior">←</button>
           <div class="svc-dots" id="svcDots">
             <button class="svc-dot active"></button>
-            <button class="svc-dot"></button>
-            <button class="svc-dot"></button>
-            <button class="svc-dot"></button>
-            <button class="svc-dot"></button>
             <button class="svc-dot"></button>
             <button class="svc-dot"></button>
             <button class="svc-dot"></button>
