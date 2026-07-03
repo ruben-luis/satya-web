@@ -637,6 +637,107 @@
       50%      { transform: rotate(20deg); }
     }
 
+    /* ── RESEÑAS ── */
+    .resenas-section {
+      padding: clamp(4rem, 10vw, 7rem) 0;
+      background: var(--surface);
+    }
+    .resenas-inner {
+      max-width: 1440px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 2.8rem;
+    }
+    .resenas-header {
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      gap: .8rem;
+      padding: 0 clamp(1.5rem, 6vw, 5rem);
+    }
+    .resenas-viewport {
+      width: 100%; overflow: hidden;
+      cursor: grab;
+    }
+    .resenas-viewport:active { cursor: grabbing; }
+    .resenas-track {
+      display: flex;
+      will-change: transform;
+    }
+    .resena-slot {
+      flex-shrink: 0; width: 100%;
+      display: flex; justify-content: center;
+      padding: 2.8rem clamp(1rem, 4vw, 2rem) 1rem;
+    }
+    .resena-card {
+      position: relative;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--sh-card);
+      padding: 3.5rem 2.2rem 2rem;
+      width: min(520px, 85vw);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      gap: .55rem;
+      transition: box-shadow .45s var(--ease-expo), transform .45s var(--ease-spring);
+    }
+    .resena-card:hover { box-shadow: var(--sh-hover); transform: translateY(-4px); }
+    .resena-avatar {
+      position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      display: flex; align-items: center; justify-content: center;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 14px rgba(79,143,168,.22);
+    }
+    .resena-avatar svg { width: 28px; height: 28px; }
+    .resena-google { position: absolute; top: .85rem; right: .85rem; width: 22px; height: 22px; }
+    .resena-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--dark);
+      margin-top: .4rem;
+    }
+    .resena-date { font-size: .75rem; color: var(--mid); opacity: .8; }
+    .resena-stars-row { display: flex; align-items: center; gap: .4rem; margin: .2rem 0; }
+    .resena-stars { color: #F4B400; font-size: 1.1rem; letter-spacing: .04em; }
+    .resena-verified {
+      width: 17px; height: 17px; border-radius: 50%;
+      background: #4285F4;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #fff; font-size: .62rem; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .resena-text {
+      font-size: clamp(.88rem, 1.1vw, .98rem);
+      line-height: 1.75; color: var(--mid);
+      max-width: 42ch; margin-top: .3rem;
+    }
+    .resenas-dots { display: flex; gap: .5rem; align-items: center; }
+    .resena-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(79,143,168,.25);
+      border: none; cursor: pointer;
+      transition: all .35s var(--ease-expo);
+    }
+    .resena-dot.active { background: var(--text-main); width: 22px; border-radius: 4px; }
+    .resenas-summary {
+      display: inline-flex; align-items: center; gap: .65rem;
+      padding: .85rem 1.8rem;
+      background: var(--white); border-radius: 999px;
+      box-shadow: var(--sh-card);
+      text-decoration: none;
+      transition: box-shadow .35s, transform .35s var(--ease-spring);
+      flex-wrap: wrap; justify-content: center;
+      margin: 0 1.5rem;
+    }
+    .resenas-summary:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
+    .resenas-summary-score {
+      font-family: 'Alegreya', serif;
+      font-size: 1.5rem; font-weight: 700; color: var(--dark);
+    }
+    .resenas-summary-stars { color: #F4B400; font-size: 1rem; }
+    .resenas-summary-text { font-size: .82rem; color: var(--mid); }
+    .resenas-summary-text strong { color: var(--dark); }
+    .resenas-summary-logo { width: 22px; height: 22px; flex-shrink: 0; }
+
     /* ── CTA SECTION ── */
     .cta-section {
       background: #8FA882;
@@ -950,6 +1051,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#nosotros">Acerca de mí</a>
       <a href="#enfoque">Filosofía</a>
+      <a href="#resenas">Reseñas</a>
     </nav>
     <div class="header-right">
       <a href="https://calendar.app.google/QmCA6j7jCmLLRBr99" target="_blank" rel="noopener" class="nav-cta">Agendar cita ↗</a>
@@ -1158,6 +1260,123 @@
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- ══ RESEÑAS ══ -->
+  <section id="resenas" class="resenas-section">
+    <div class="resenas-inner">
+
+      <div class="resenas-header">
+        <span class="t-label reveal">Google · Reseñas verificadas</span>
+        <h2 class="t-section reveal reveal-d1">Experiencias de nuestros consultantes</h2>
+      </div>
+
+      <div class="resenas-viewport" id="resenasViewport">
+        <div class="resenas-track" id="resenasTrack">
+
+          <!-- clone última: Nay MM -->
+          <div class="resena-slot">
+            <article class="resena-card">
+              <div class="resena-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <svg class="resena-google" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div class="resena-name">Nay MM</div>
+              <div class="resena-date">Hace un mes</div>
+              <div class="resena-stars-row"><span class="resena-stars">★★★★★</span><span class="resena-verified" aria-label="Verificado">✓</span></div>
+            </article>
+          </div>
+
+          <!-- 1. Tabubue Matta -->
+          <div class="resena-slot">
+            <article class="resena-card">
+              <div class="resena-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <svg class="resena-google" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div class="resena-name">Tabubue Matta</div>
+              <div class="resena-date">2 semanas atrás</div>
+              <div class="resena-stars-row"><span class="resena-stars">★★★★★</span><span class="resena-verified" aria-label="Verificado">✓</span></div>
+              <p class="resena-text">La psicóloga Nay es una terapeuta recomendable, es muy comprometida, amable y sabe guiar con facilidad. Si estás buscando comenzar con tu proceso, te la recomiendo.</p>
+            </article>
+          </div>
+
+          <!-- 2. Blanca Hernández -->
+          <div class="resena-slot">
+            <article class="resena-card">
+              <div class="resena-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <svg class="resena-google" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div class="resena-name">Blanca Hernández</div>
+              <div class="resena-date">Hace un mes</div>
+              <div class="resena-stars-row"><span class="resena-stars">★★★★★</span><span class="resena-verified" aria-label="Verificado">✓</span></div>
+              <p class="resena-text">Aún sigo en mi proceso terapéutico pero me ha ayudado bastante a encontrar mis propias respuestas. Agradezco infinito que haya gente tan profesional y dispuesta a ayudar a otras personas... gracias 🙏</p>
+            </article>
+          </div>
+
+          <!-- 3. Alejandra Rasgado González -->
+          <div class="resena-slot">
+            <article class="resena-card">
+              <div class="resena-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <svg class="resena-google" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div class="resena-name">Alejandra Rasgado González</div>
+              <div class="resena-date">Hace un mes</div>
+              <div class="resena-stars-row"><span class="resena-stars">★★★★★</span><span class="resena-verified" aria-label="Verificado">✓</span></div>
+              <p class="resena-text">Nay es una terapeuta comprometida, empática y profesional, que brinda un espacio seguro para acompañar procesos de crecimiento personal y bienestar. Su enfoque humano permite que cada persona se sienta escuchada, comprendida y acompañada con respeto y sensibilidad. Es un espacio 100% recomendado.</p>
+            </article>
+          </div>
+
+          <!-- 4. Ale Muñoz -->
+          <div class="resena-slot">
+            <article class="resena-card">
+              <div class="resena-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <svg class="resena-google" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div class="resena-name">Ale Muñoz</div>
+              <div class="resena-date">Hace un mes</div>
+              <div class="resena-stars-row"><span class="resena-stars">★★★★★</span><span class="resena-verified" aria-label="Verificado">✓</span></div>
+              <p class="resena-text">Mi experiencia en Satya ha sido un proceso muy profundo lleno de introspección y amabilidad. Nay es una gran terapeuta con una gran vocación de ayudar a las personas que buscan respuestas y encontrar su camino a la libertad personal. La recomiendo ampliamente.</p>
+            </article>
+          </div>
+
+          <!-- 5. Nay MM -->
+          <div class="resena-slot">
+            <article class="resena-card">
+              <div class="resena-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <svg class="resena-google" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div class="resena-name">Nay MM</div>
+              <div class="resena-date">Hace un mes</div>
+              <div class="resena-stars-row"><span class="resena-stars">★★★★★</span><span class="resena-verified" aria-label="Verificado">✓</span></div>
+            </article>
+          </div>
+
+          <!-- clone primera: Tabubue Matta -->
+          <div class="resena-slot">
+            <article class="resena-card">
+              <div class="resena-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+              <svg class="resena-google" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <div class="resena-name">Tabubue Matta</div>
+              <div class="resena-date">2 semanas atrás</div>
+              <div class="resena-stars-row"><span class="resena-stars">★★★★★</span><span class="resena-verified" aria-label="Verificado">✓</span></div>
+              <p class="resena-text">La psicóloga Nay es una terapeuta recomendable, es muy comprometida, amable y sabe guiar con facilidad. Si estás buscando comenzar con tu proceso, te la recomiendo.</p>
+            </article>
+          </div>
+
+        </div><!-- /resenas-track -->
+      </div><!-- /resenas-viewport -->
+
+      <div class="resenas-dots" id="resenasDots">
+        <button class="resena-dot active" aria-label="Reseña 1"></button>
+        <button class="resena-dot" aria-label="Reseña 2"></button>
+        <button class="resena-dot" aria-label="Reseña 3"></button>
+        <button class="resena-dot" aria-label="Reseña 4"></button>
+        <button class="resena-dot" aria-label="Reseña 5"></button>
+      </div>
+
+      <a href="https://www.google.com/maps/place/Satya+Psicoterapia/@19.0620264,-98.2315759,16.84z/data=!4m8!3m7!1s0x85cfc7646acdee79:0x3f610cef692ac093!8m2!3d19.0620355!4d-98.2314045!9m1!1b1!16s%2Fg%2F11z7cfw81j!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="resenas-summary reveal">
+        <svg class="resenas-summary-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="resenas-summary-score">4.9</span>
+        <span class="resenas-summary-stars">★★★★★</span>
+        <span class="resenas-summary-text">La evaluación general en Google es <strong>4.9 de 5</strong>, en base a <strong>110 reseñas</strong></span>
+      </a>
+
+    </div>
+  </section>
+
   <!-- ══ CTA ══ -->
   <section id="contacto" class="cta-section">
     <div class="cta-inner">
@@ -1240,6 +1459,7 @@
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#nosotros">Acerca de mí</a></li>
           <li><a href="#enfoque">Filosofía</a></li>
+          <li><a href="#resenas">Reseñas</a></li>
         </ul>
       </div>
 
@@ -1388,6 +1608,62 @@
         fabStack.style.transition    = 'opacity .4s, transform .4s';
       }, { threshold: 0.05 });
       footerObs.observe(footer);
+    })();
+
+    /* ── Carrusel reseñas (auto-scroll infinito) ── */
+    (function () {
+      const track    = document.getElementById('resenasTrack');
+      const viewport = document.getElementById('resenasViewport');
+      const dots     = document.querySelectorAll('.resena-dot');
+      const N       = 5;   // cards reales
+      const DUR_MS  = 900; // duración transición
+      const WAIT_MS = 5000; // pausa entre avances
+      // Track: [clone-última(0), card1(1)…card5(5), clone-primera(6)]
+      let cur    = 1;
+      let paused = false;
+
+      function setPos(idx, animate) {
+        track.style.transition = animate
+          ? 'transform ' + DUR_MS + 'ms cubic-bezier(0.16, 1, 0.3, 1)'
+          : 'none';
+        track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+        var real = idx <= 0 ? N - 1 : idx >= N + 1 ? 0 : idx - 1;
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === real); });
+      }
+
+      function advance() {
+        if (paused) return;
+        cur++;
+        setPos(cur, true);
+        if (cur === N + 1) {
+          setTimeout(function () { setPos((cur = 1), false); }, DUR_MS + 50);
+        }
+      }
+
+      setPos(1, false);
+      setInterval(advance, WAIT_MS);
+
+      viewport.addEventListener('mouseenter', function () { paused = true; });
+      viewport.addEventListener('mouseleave', function () { paused = false; });
+
+      var tx = 0;
+      viewport.addEventListener('touchstart', function (e) {
+        tx = e.touches[0].clientX; paused = true;
+      }, { passive: true });
+      viewport.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - tx;
+        if (Math.abs(dx) > 48) {
+          cur = dx < 0 ? Math.min(cur + 1, N + 1) : Math.max(cur - 1, 0);
+          setPos(cur, true);
+          if (cur === N + 1) setTimeout(function () { setPos((cur = 1), false); }, DUR_MS + 50);
+          if (cur === 0)     setTimeout(function () { setPos((cur = N), false); }, DUR_MS + 50);
+        }
+        setTimeout(function () { paused = false; }, 2500);
+      }, { passive: true });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { cur = i + 1; setPos(cur, true); });
+      });
     })();
   </script>
 
